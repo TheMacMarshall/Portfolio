@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  imageSide: "left" | "right";
+  caption?: string;
+}
+
+const { src, alt, imageSide, caption } = Astro.props;
+---
+
+<section class:list={["case-block", "case-split", `case-split--image-${imageSide}`]}>
+  <figure class="case-split__media">
+    <Image src={src} alt={alt} loading="lazy" decoding="async" />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+  <div class="case-split__copy">
+    <slot />
+  </div>
+</section>
+

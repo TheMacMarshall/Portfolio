@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" fill="none">
+  <rect width="1200" height="1500" fill="#B7C0B0"/>
+  <text x="86" y="112" fill="#374137" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">PLACEHOLDER IMAGE / MOBILITY SYSTEM</text>
+  <path d="M86 139H520" stroke="#687365"/>
+  <rect x="238" y="226" width="724" height="1130" rx="26" fill="#29302B"/>
+  <rect x="258" y="246" width="684" height="1090" rx="12" fill="#F0EEE7"/>
+  <rect x="487" y="267" width="226" height="21" rx="10" fill="#29302B"/>
+  <text x="307" y="375" fill="#3B433A" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">YOUR JOURNEY</text>
+  <text x="307" y="452" fill="#272D28" font-family="Georgia, serif" font-size="62">A quieter</text>
+  <text x="307" y="516" fill="#272D28" font-family="Georgia, serif" font-size="62">way forward.</text>
+  <rect x="307" y="564" width="586" height="315" fill="#D4D9CE"/>
+  <path d="M307 778C392 704 442 716 507 754C580 796 641 741 695 702C757 657 817 677 893 726" stroke="#65745F" stroke-width="5"/>
+  <path d="M307 804H893M365 564V879M834 564V879" stroke="#AFB7AA" stroke-width="2"/>
+  <circle cx="598" cy="720" r="13" fill="#52624E"/>
+  <path d="M342 615H496" stroke="#F0EEE7" stroke-width="6"/>
+  <text x="307" y="940" fill="#666C63" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">NEXT STOP</text>
+  <text x="307" y="984" fill="#29302B" font-family="Arial, sans-serif" font-size="27">Continue at your own pace</text>
+  <path d="M307 1022H893" stroke="#C9CBC2" stroke-width="2"/>
+  <circle cx="342" cy="1082" r="24" stroke="#75806F" stroke-width="2"/>
+  <path d="M334 1082L341 1089L352 1075" stroke="#52624E" stroke-width="2"/>
+  <text x="385" y="1090" fill="#424940" font-family="Arial, sans-serif" font-size="20">A simple, considered interface</text>
+  <rect x="307" y="1170" width="586" height="91" fill="#52624E"/>
+  <text x="469" y="1226" fill="#F5F3EC" font-family="Arial, sans-serif" font-size="20" letter-spacing="2">PLACEHOLDER ACTION</text>
+</svg>

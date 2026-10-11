@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1300" viewBox="0 0 1000 1300" fill="none">
+  <rect width="1000" height="1300" fill="#e8e5dc"/>
+  <rect x="97" y="72" width="806" height="1156" rx="54" fill="#20211e"/>
+  <rect x="116" y="91" width="768" height="1118" rx="38" fill="#f8f7f1"/>
+  <rect x="116" y="91" width="768" height="86" rx="38" fill="#e8e5dc"/>
+  <rect x="421" y="113" width="158" height="10" rx="5" fill="#a8aaa2"/>
+  <text x="174" y="232" fill="#52624e" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">NEXT STOP</text>
+  <text x="174" y="298" fill="#20211e" font-family="Georgia, serif" font-size="49">A considered pause.</text>
+  <rect x="174" y="344" width="652" height="384" rx="4" fill="#d9ddd3"/>
+  <path d="M174 614c103-118 173-132 264-63 81 62 158 48 242-62 50-65 94-83 146-63v302H174V614Z" fill="#52624e"/>
+  <circle cx="642" cy="462" r="56" fill="#a5ab9d"/>
+  <path d="M215 680c134-95 219-91 344-6 93 63 156 49 228-19" stroke="#f8f7f1" stroke-width="4" stroke-dasharray="5 14"/>
+  <rect x="174" y="773" width="652" height="1" fill="#d7d7d0"/>
+  <text x="174" y="831" fill="#20211e" font-family="Arial, sans-serif" font-size="18">REMAINING</text>
+  <text x="174" y="900" fill="#20211e" font-family="Georgia, serif" font-size="44">18 min</text>
+  <text x="511" y="831" fill="#20211e" font-family="Arial, sans-serif" font-size="18">NEXT ACTION</text>
+  <text x="511" y="900" fill="#20211e" font-family="Georgia, serif" font-size="33">Turn right</text>
+  <rect x="174" y="967" width="652" height="1" fill="#d7d7d0"/>
+  <rect x="174" y="1008" width="652" height="80" rx="40" fill="#52624e"/>
+  <text x="380" y="1059" fill="#f8f7f1" font-family="Arial, sans-serif" font-size="20">View route details</text>
+</svg>

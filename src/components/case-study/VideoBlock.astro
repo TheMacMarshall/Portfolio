@@ -1,0 +1,31 @@
+---
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  src: string;
+  poster?: ImageMetadata;
+  alt: string;
+  captions?: string;
+  caption?: string;
+}
+
+const { src, poster, alt, captions, caption } = Astro.props;
+---
+
+<figure class="case-block case-video">
+  <video
+    controls
+    controlslist="nodownload noplaybackrate noremoteplayback"
+    disablepictureinpicture
+    disableRemotePlayback
+    preload="metadata"
+    poster={poster?.src}
+    aria-label={alt}
+    playsinline
+  >
+    <source src={src} />
+    {captions && <track kind="captions" src={captions} srclang="en" label="English" default />}
+    Your browser does not support embedded video.
+  </video>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

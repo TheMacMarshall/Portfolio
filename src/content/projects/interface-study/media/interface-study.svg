@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#D8D4C9"/>
+  <path d="M0 724C177 663 324 640 485 640H1115C1287 640 1459 683 1600 739V1000H0V724Z" fill="#292D2A"/>
+  <path d="M169 698L322 514C357 472 411 447 468 447H1108C1183 447 1254 480 1302 536L1444 703" stroke="#778272" stroke-width="5"/>
+  <path d="M259 704L394 543C416 516 449 500 484 500H1097C1146 500 1192 521 1223 559L1340 704" fill="#414841"/>
+  <path d="M756 499V704M1095 501V704" stroke="#697366" stroke-width="3"/>
+  <rect x="322" y="770" width="377" height="150" rx="3" fill="#D9D5CA"/>
+  <rect x="342" y="790" width="337" height="110" fill="#29312F"/>
+  <path d="M373 865C403 825 438 816 470 854C510 901 551 816 582 830C612 842 635 862 655 839" stroke="#A9B49C" stroke-width="4"/>
+  <circle cx="401" cy="813" r="4" fill="#B3C09F"/>
+  <circle cx="633" cy="813" r="4" fill="#B3C09F"/>
+  <rect x="727" y="770" width="489" height="150" rx="3" fill="#D9D5CA"/>
+  <rect x="747" y="790" width="449" height="110" fill="#333A35"/>
+  <circle cx="835" cy="845" r="30" stroke="#AEB7A4" stroke-width="2"/>
+  <path d="M835 815V845L857 858" stroke="#AEB7A4" stroke-width="2"/>
+  <path d="M898 818H1168M898 843H1122M898 868H1149" stroke="#747F71" stroke-width="4"/>
+  <text x="98" y="120" fill="#414740" font-family="Arial, sans-serif" font-size="20" letter-spacing="4">PLACEHOLDER IMAGE / INTERFACE STUDY</text>
+  <path d="M98 147H481" stroke="#7D8177"/>
+</svg>

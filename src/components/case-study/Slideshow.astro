@@ -1,0 +1,189 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  autoplay?: boolean;
+}
+
+const { title, subtitle, autoplay = true } = Astro.props;
+---
+
+<section
+  class="case-block case-slideshow"
+  aria-label={title ?? "Image slideshow"}
+  aria-roledescription="carousel"
+  data-slideshow
+  data-autoplay={autoplay ? "true" : "false"}
+>
+  {(title || subtitle) && (
+    <header class="case-slideshow__header">
+      {title && <h2>{title}</h2>}
+      {subtitle && <p>{subtitle}</p>}
+    </header>
+  )}
+  <div class="case-slideshow__viewport">
+    <div class="case-slideshow__track" data-slideshow-track>
+      <slot />
+    </div>
+  </div>
+  <div class="case-slideshow__controls" data-slideshow-controls hidden>
+    <button type="button" data-slideshow-previous aria-label="Previous slide">
+      <span aria-hidden="true">←</span>
+    </button>
+    <div class="case-slideshow__pagination" data-slideshow-pagination aria-label="Choose a slide" />
+    <button type="button" data-slideshow-next aria-label="Next slide">
+      <span aria-hidden="true">→</span>
+    </button>
+    <button type="button" class="case-slideshow__toggle" data-slideshow-toggle>
+      Pause
+    </button>
+    <span class="case-slideshow__status" data-slideshow-status />
+  </div>
+</section>
+
+<script>
+  const initializeSlideshows = () => {
+    document.querySelectorAll<HTMLElement>("[data-slideshow]").forEach((slideshow) => {
+      if (slideshow.dataset.initialized === "true") return;
+
+      const track = slideshow.querySelector<HTMLElement>("[data-slideshow-track]");
+      const controls = slideshow.querySelector<HTMLElement>("[data-slideshow-controls]");
+      const previous = slideshow.querySelector<HTMLButtonElement>("[data-slideshow-previous]");
+      const next = slideshow.querySelector<HTMLButtonElement>("[data-slideshow-next]");
+      const toggle = slideshow.querySelector<HTMLButtonElement>("[data-slideshow-toggle]");
+      const pagination = slideshow.querySelector<HTMLElement>("[data-slideshow-pagination]");
+      const status = slideshow.querySelector<HTMLElement>("[data-slideshow-status]");
+      if (!track || !controls || !previous || !next || !toggle || !pagination || !status) return;
+
+      const slides = [...track.children].filter(
+        (slide): slide is HTMLElement => slide instanceof HTMLElement,
+      );
+      if (slides.length === 0) return;
+
+      slideshow.dataset.initialized = "true";
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let currentIndex = 0;
+      let paused = reducedMotion.matches || slideshow.dataset.autoplay !== "true";
+      let hovered = false;
+      let focused = false;
+      let timer: number | undefined;
+      const paginationButtons: HTMLButtonElement[] = [];
+
+      const updateSlides = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        slides.forEach((slide, index) => {
+          slide.setAttribute("aria-hidden", String(index !== currentIndex));
+          slide.toggleAttribute("inert", index !== currentIndex);
+          slide.setAttribute("aria-label", `${index + 1} of ${slides.length}`);
+        });
+        paginationButtons.forEach((button, index) => {
+          const isCurrent = index === currentIndex;
+          button.setAttribute("aria-current", String(isCurrent));
+          button.setAttribute("aria-label", `Show slide ${index + 1} of ${slides.length}`);
+        });
+        status.textContent = `Slide ${currentIndex + 1} of ${slides.length}`;
+        track.setAttribute("aria-live", slideshow.dataset.autoplay === "true" && !paused ? "off" : "polite");
+      };
+
+      const stopTimer = () => {
+        if (timer !== undefined) window.clearInterval(timer);
+        timer = undefined;
+      };
+
+      const updateToggle = () => {
+        toggle.textContent = paused ? "Play" : "Pause";
+        toggle.setAttribute("aria-label", paused ? "Resume slideshow" : "Pause slideshow");
+      };
+
+      const syncTimer = () => {
+        stopTimer();
+        updateToggle();
+        if (
+          slideshow.dataset.autoplay === "true" &&
+          !paused &&
+          !hovered &&
+          !focused &&
+          !reducedMotion.matches &&
+          !document.hidden &&
+          slides.length > 1
+        ) {
+          timer = window.setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlides();
+          }, 5000);
+        }
+      };
+
+      slides.forEach((slide, index) => {
+        slide.classList.add("case-slideshow__slide");
+        slide.setAttribute("role", "group");
+        slide.setAttribute("aria-roledescription", "slide");
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "case-slideshow__dot";
+        button.addEventListener("click", () => {
+          currentIndex = index;
+          paused = true;
+          updateSlides();
+          syncTimer();
+        });
+        pagination.append(button);
+        paginationButtons.push(button);
+      });
+
+      controls.hidden = slides.length < 2;
+      previous.hidden = slides.length < 2;
+      next.hidden = slides.length < 2;
+      pagination.hidden = slides.length < 2;
+      toggle.hidden = slides.length < 2 || slideshow.dataset.autoplay !== "true";
+
+      previous.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        paused = true;
+        updateSlides();
+        syncTimer();
+      });
+      next.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        paused = true;
+        updateSlides();
+        syncTimer();
+      });
+      toggle.addEventListener("click", () => {
+        paused = !paused;
+        syncTimer();
+      });
+      slideshow.addEventListener("mouseenter", () => {
+        hovered = true;
+        syncTimer();
+      });
+      slideshow.addEventListener("mouseleave", () => {
+        hovered = false;
+        syncTimer();
+      });
+      slideshow.addEventListener("focusin", () => {
+        focused = true;
+        syncTimer();
+      });
+      slideshow.addEventListener("focusout", (event) => {
+        if (!slideshow.contains(event.relatedTarget as Node | null)) {
+          focused = false;
+          syncTimer();
+        }
+      });
+      slideshow.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") previous.click();
+        if (event.key === "ArrowRight") next.click();
+      });
+      document.addEventListener("visibilitychange", syncTimer);
+      reducedMotion.addEventListener("change", syncTimer);
+
+      updateSlides();
+      syncTimer();
+    });
+  };
+
+  initializeSlideshows();
+  document.addEventListener("astro:page-load", initializeSlideshows);
+</script>

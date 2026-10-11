@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { sitePath } from "../utils/site-path";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const { title, description, year, disciplines, cover, coverAlt, placeholder } = project.data;
+const projectUrl = sitePath(`work/${project.id}/`);
+const imageLoading = index === 0 ? "eager" : "lazy";
+---
+
+<article class="project-preview">
+  <a class="project-preview__link" href={projectUrl} aria-labelledby={`project-title-${project.id}`}>
+    <div class="project-preview__image">
+      <img
+        src={cover.src}
+        width={cover.width}
+        height={cover.height}
+        alt={coverAlt}
+        loading={imageLoading}
+        decoding="async"
+        fetchpriority={index === 0 ? "high" : "auto"}
+      />
+      {placeholder && <span class="project-preview__placeholder">Placeholder project</span>}
+      <span class="project-preview__arrow" aria-hidden="true">↗</span>
+    </div>
+    <div class="project-preview__details">
+      <div>
+        <h3 id={`project-title-${project.id}`}>{title}</h3>
+        <p>{description}</p>
+      </div>
+      <div class="project-preview__meta">
+        <span>{disciplines.join(" / ")}</span>
+        <span>{year}</span>
+      </div>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,25 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { sitePath } from "../utils/site-path";
+---
+
+<SiteLayout
+  title="Contact"
+  description="Contact page for a product designer and design leader working across automotive interfaces and digital products."
+>
+  <article class="profile-page contact-page" aria-labelledby="contact-title">
+    <header class="profile-page__header">
+      <p class="eyebrow">Contact <span aria-hidden="true">/</span> Start a conversation</p>
+      <h1 class="display" id="contact-title">Let’s talk about what comes next.</h1>
+      <p class="lede">
+        For now, contact details are intentionally not published. This page is ready for a direct
+        email link when you choose the address you want to share.
+      </p>
+    </header>
+
+    <nav class="profile-page__links" aria-label="Explore the portfolio">
+      <a class="text-link" href={sitePath("#work")}>Explore selected work <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href={sitePath("about/")}>About <span aria-hidden="true">↗</span></a>
+    </nav>
+  </article>
+</SiteLayout>

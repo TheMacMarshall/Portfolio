@@ -1,0 +1,34 @@
+---
+title: "Project title"
+description: "A concise summary of the project and its design context."
+year: 2026
+role:
+  - Product design
+industry: "Industry or context"
+disciplines:
+  - UX
+featured: false
+order: 99
+cover: ./media/cover.svg
+coverAlt: "Describe the meaningful information shown in the project cover."
+placeholder: true
+---
+
+import RichText from "../../../components/case-study/RichText.astro";
+import FullWidthImage from "../../../components/case-study/FullWidthImage.astro";
+import coverImage from "./media/cover.svg";
+
+<RichText>
+
+## Start with context
+
+Replace this sample text with your project story. Keep confidential details out of the public
+portfolio, and distinguish shipped work from concepts or explorations.
+
+</RichText>
+
+<FullWidthImage
+  src={coverImage}
+  alt="Describe the interface or artifact visible in this image."
+  caption="Optional caption describing the image."
+/>

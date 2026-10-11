@@ -1,0 +1,216 @@
+---
+title: "Case study layout showcase"
+description: "A visual guide to the available case-study content blocks and page layouts."
+year: 2026
+role:
+  - Portfolio system
+industry: "Design practice"
+disciplines:
+  - Editorial layout
+  - Content design
+tags:
+  - Layout guide
+  - Components
+featured: true
+order: 99
+cover: ./media/showcase-cover.svg
+coverAlt: "A portfolio page mockup combining a large image, editorial headline, and interface panels."
+placeholder: true
+---
+
+import RichText from "../../../components/case-study/RichText.astro";
+import FullWidthImage from "../../../components/case-study/FullWidthImage.astro";
+import SplitImage from "../../../components/case-study/SplitImage.astro";
+import ImageGallery from "../../../components/case-study/ImageGallery.astro";
+import Slideshow from "../../../components/case-study/Slideshow.astro";
+import SlideshowSlide from "../../../components/case-study/SlideshowSlide.astro";
+import VideoBlock from "../../../components/case-study/VideoBlock.astro";
+import BeforeAfter from "../../../components/case-study/BeforeAfter.astro";
+import PullQuote from "../../../components/case-study/PullQuote.astro";
+import KeyMetrics from "../../../components/case-study/KeyMetrics.astro";
+import Metric from "../../../components/case-study/Metric.astro";
+import FullBleedMedia from "../../../components/case-study/FullBleedMedia.astro";
+import wideInterface from "./media/interface-wide.svg";
+import detailedInterface from "./media/interface-detail.svg";
+import slideshowOverview from "./media/slideshow-overview.svg";
+import slideshowDetail from "./media/slideshow-detail.svg";
+import showcaseMovie from "./media/showcase.mp4";
+
+<RichText>
+
+## A flexible canvas for a project story
+
+This sample page is a visual inventory of the case-study blocks available in the portfolio. The
+interface artwork and sample writing are illustrative—not a client project or a claim about shipped
+work.
+
+### Headings, paragraphs, and lists
+
+Use `RichText` for narrative sections. Write in Markdown, starting with a level-two heading beneath
+the project title, then use paragraphs, subheadings, and lists to shape the story.
+
+- **Context:** explain the setting, audience, and constraints.
+- **Approach:** describe the design decisions and evidence behind them.
+- **Outcome:** share only verified, publishable results.
+
+</RichText>
+
+<FullWidthImage
+  src={wideInterface}
+  alt="Illustrative wide vehicle interface showing a route line, arrival details, and a route action."
+  caption="Full-width image — useful when the visual needs room to carry the story."
+/>
+
+<RichText>
+
+## Pairing a visual with supporting copy
+
+Use a split layout to keep a related explanation close to its image. The image can sit on either
+side; the next example switches its position.
+
+</RichText>
+
+<SplitImage
+  src={detailedInterface}
+  alt="Illustrative mobile route interface with a map, remaining time, and a next-action prompt."
+  imageSide="right"
+  caption="Split image, media on the right."
+>
+
+### Give the detail a purpose
+
+Explain what the viewer should notice and why it matters. This column supports headings and
+paragraphs alongside the image without forcing every case study into the same rhythm.
+
+</SplitImage>
+
+<SplitImage
+  src={wideInterface}
+  alt="Illustrative wide route interface shown beside explanatory copy."
+  imageSide="left"
+>
+
+### Reverse the composition
+
+The same block can place the image on the left. Alternate sides only when it helps pacing or makes
+the relationship between copy and image clearer.
+
+</SplitImage>
+
+<RichText>
+
+## Grouping related screens
+
+`Slideshow` presents one image at a time with an automatic horizontal transition, manual controls,
+and optional title and subtitle.
+
+</RichText>
+
+<Slideshow
+  title="A journey, in two moments"
+  subtitle="An optional supporting line can add context to the sequence."
+>
+  <SlideshowSlide
+    src={slideshowOverview}
+    alt="Wide route-planning screen with a route, arrival information, and one clear action."
+    caption="01 — Overview"
+  />
+  <SlideshowSlide
+    src={slideshowDetail}
+    alt="Wide interface detail showing remaining journey time and the next driving action."
+    caption="02 — In-context detail"
+  />
+</Slideshow>
+
+<RichText>
+
+## A static image gallery
+
+`ImageGallery` remains available when you want to show multiple images at once in a responsive
+two-column grid rather than a slideshow.
+
+</RichText>
+
+<ImageGallery label="Illustrative interface image gallery">
+  <FullWidthImage
+    src={wideInterface}
+    alt="Wide route-planning screen with a route, arrival information, and one clear action."
+    caption="01 — Overview"
+  />
+  <FullWidthImage
+    src={detailedInterface}
+    alt="Portrait interface with the next journey action and route detail."
+    caption="02 — In-context detail"
+  />
+</ImageGallery>
+
+<RichText>
+
+## Comparing design states
+
+A side-by-side comparison gives two related moments equal weight. Use clear labels and separate alt
+text so the distinction remains understandable without seeing the images.
+
+</RichText>
+
+<BeforeAfter
+  before={detailedInterface}
+  after={wideInterface}
+  beforeAlt="Portrait route concept emphasizing several stacked pieces of journey information."
+  afterAlt="Wide route concept emphasizing the route overview and one primary action."
+  beforeLabel="Exploration — portrait"
+  afterLabel="Refinement — overview"
+/>
+
+<RichText>
+
+## Making a principle memorable
+
+A pull quote can break up a longer narrative. It also supports optional metric blocks when there are
+real, relevant measures to share.
+
+</RichText>
+
+<PullQuote
+  quote="The best layout is the one that gives each part of the story the space it needs."
+  attribution="Illustrative design principle"
+>
+
+<KeyMetrics>
+  <Metric value="01" label="one clear hierarchy" />
+  <Metric value="02" label="two considered image positions" />
+  <Metric value="∞" label="possible story sequences" />
+</KeyMetrics>
+
+</PullQuote>
+
+<RichText>
+
+## Including a video
+
+Video blocks use native playback controls, a project-local MP4, and an explicit or automatically
+generated poster. Optional captions can be added when a video contains meaningful speech or audio.
+
+</RichText>
+
+<VideoBlock
+  src={showcaseMovie}
+  alt="A short illustrative clip showing an elephant approaching the camera."
+  caption="Video block — the supplied sample clip is included to demonstrate media placement."
+/>
+
+<FullBleedMedia
+  src={wideInterface}
+  alt="Wide illustrative journey interface with a route map and a clear next action."
+  caption="Full-bleed media — an edge-to-edge closing image for a strong visual pause."
+/>
+
+<RichText>
+
+## Choosing a sequence
+
+Combine only the blocks that help explain the work. Reorder them to match the real process: a story
+can move from context to comparison, from a full-width visual into a split detail, or from a quote
+to a final full-bleed image.
+
+</RichText>

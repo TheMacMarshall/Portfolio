@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#D8D4C9"/>
+  <rect x="115" y="120" width="1370" height="760" fill="#29302B"/>
+  <rect x="155" y="160" width="1290" height="680" fill="#F0EEE7"/>
+  <text x="220" y="242" fill="#52624E" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">PLACEHOLDER / JOURNEY OVERVIEW</text>
+  <text x="220" y="334" fill="#272D28" font-family="Georgia, serif" font-size="62">A little more room to think.</text>
+  <rect x="220" y="386" width="1160" height="330" fill="#D4D9CE"/>
+  <path d="M220 644C354 577 440 597 533 620C653 650 758 613 861 550C981 476 1118 489 1380 576" stroke="#65745F" stroke-width="7"/>
+  <path d="M220 684H1380M340 386V716M1260 386V716" stroke="#AFB7AA" stroke-width="2"/>
+  <circle cx="768" cy="578" r="18" fill="#52624E"/>
+  <path d="M282 436H526M282 467H452" stroke="#F0EEE7" stroke-width="8"/>
+  <text x="220" y="774" fill="#666C63" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">SAMPLE INTERFACE CONCEPT — NOT A PRODUCT RESULT</text>
+</svg>

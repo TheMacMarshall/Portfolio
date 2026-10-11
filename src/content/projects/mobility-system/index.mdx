@@ -1,0 +1,83 @@
+---
+title: "Mobility system 02"
+description: "A fictional digital mobility concept exploring a calmer way to bring journey details together."
+year: 2026
+industry: "Digital mobility concept"
+role:
+  - Product design
+  - Design systems
+disciplines:
+  - Digital product
+  - Mobility
+tags:
+  - Product design
+  - Concept
+featured: true
+order: 2
+cover: ./media/mobility-system.svg
+coverAlt: "Fictional journey-planning interface shown inside a mobile device."
+placeholder: true
+---
+
+import RichText from "../../../components/case-study/RichText.astro";
+import ImageGallery from "../../../components/case-study/ImageGallery.astro";
+import FullWidthImage from "../../../components/case-study/FullWidthImage.astro";
+import SplitImage from "../../../components/case-study/SplitImage.astro";
+import PullQuote from "../../../components/case-study/PullQuote.astro";
+import KeyMetrics from "../../../components/case-study/KeyMetrics.astro";
+import Metric from "../../../components/case-study/Metric.astro";
+import mobilityImage from "./media/mobility-system.svg";
+import interfaceImage from "./media/mobility-system-detail.svg";
+
+<RichText>
+
+## A different kind of case study
+
+This fictional example begins with a short narrative and then groups related images together.
+The blocks are composed here in a different order from the first sample to show that no fixed
+story structure is required.
+
+### Designed as a connected journey
+
+All project copy and imagery in this sample is placeholder material for testing the site system.
+
+</RichText>
+
+<ImageGallery label="Journey and interface concepts">
+  <FullWidthImage
+    src={mobilityImage}
+    alt="Fictional journey planner in a mobile-device frame."
+    caption="Journey overview / placeholder artwork"
+  />
+  <FullWidthImage
+    src={interfaceImage}
+    alt="Fictional in-vehicle display concept with abstract information panels."
+    caption="Interface direction / placeholder artwork"
+  />
+</ImageGallery>
+
+<PullQuote
+  quote="A second fictional line, included to show the quote block can sit between other media."
+  attribution="Illustrative copy only"
+>
+
+<KeyMetrics>
+  <Metric value="A" label="sample concept state (illustrative)" />
+  <Metric value="B" label="sample concept state (illustrative)" />
+</KeyMetrics>
+
+</PullQuote>
+
+<SplitImage
+  src={interfaceImage}
+  alt="Fictional interface artwork used as a closing visual for the sample story."
+  imageSide="left"
+  caption="Closing visual / placeholder artwork"
+>
+
+### A flexible ending
+
+Add, remove, or reorder blocks to fit the story. A project can omit any of the optional media
+patterns and still share the same metadata, navigation, and page shell.
+
+</SplitImage>

@@ -1,0 +1,14 @@
+---
+import { sitePath } from "../utils/site-path";
+---
+
+<header class="site-header">
+  <a class="wordmark" href={sitePath()} aria-label="Portfolio home">PORTFOLIO</a>
+  <nav aria-label="Main navigation">
+    <ul class="site-nav">
+      <li><a href={sitePath("#work")}>Work</a></li>
+      <li><a href={sitePath("about/")}>About</a></li>
+      <li><a href={sitePath("contact/")}>Contact</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,12 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Project image gallery" } = Astro.props;
+---
+
+<section class="case-block case-gallery" aria-label={label}>
+  <slot />
+</section>
+

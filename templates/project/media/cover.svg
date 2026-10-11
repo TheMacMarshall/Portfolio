@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#e8e5dc"/>
+  <rect x="160" y="150" width="1280" height="700" fill="#29302b"/>
+  <rect x="200" y="190" width="1200" height="620" fill="#f3f1eb"/>
+  <text x="280" y="440" fill="#52624e" font-family="Arial, sans-serif" font-size="32" letter-spacing="6">PROJECT COVER</text>
+  <text x="280" y="540" fill="#20211e" font-family="Georgia, serif" font-size="70">Replace with your work</text>
+  <text x="280" y="610" fill="#696b64" font-family="Arial, sans-serif" font-size="24">Starter artwork only — not a portfolio project</text>
+</svg>

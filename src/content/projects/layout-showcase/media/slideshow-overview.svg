@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+  <rect width="1920" height="1080" fill="#d9ddd3"/>
+  <rect x="76" y="76" width="1768" height="928" rx="12" fill="#20211e"/>
+  <rect x="108" y="108" width="1704" height="864" rx="4" fill="#f8f7f1"/>
+  <rect x="108" y="108" width="1704" height="92" fill="#e8e5dc"/>
+  <text x="172" y="165" fill="#20211e" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">JOURNEY OVERVIEW</text>
+  <circle cx="1692" cy="154" r="17" fill="#52624e"/>
+  <path d="M194 714c202-234 374-288 586-206 161 62 296 54 430-102 110-129 229-168 416-106" stroke="#52624e" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 22"/>
+  <circle cx="194" cy="714" r="23" fill="#52624e"/>
+  <circle cx="1626" cy="300" r="23" fill="#20211e"/>
+  <path d="M318 244c110 15 188 80 230 183M730 234c-22 95 7 161 87 204M1228 270c116 20 185 72 224 158M400 854c125-60 234-65 337-17" stroke="#bcc1b7" stroke-width="4"/>
+  <rect x="194" y="820" width="1532" height="1" fill="#d7d7d0"/>
+  <text x="194" y="890" fill="#52624e" font-family="Arial, sans-serif" font-size="19" letter-spacing="5">ARRIVAL</text>
+  <text x="194" y="940" fill="#20211e" font-family="Georgia, serif" font-size="44">A clearer view of what comes next.</text>
+  <rect x="1450" y="864" width="276" height="64" rx="32" fill="#52624e"/>
+  <text x="1512" y="904" fill="#f8f7f1" font-family="Arial, sans-serif" font-size="18">Continue route</text>
+</svg>

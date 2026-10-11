@@ -1,0 +1,44 @@
+---
+title: "BMW Operating System X"
+description: "Designing the future of automotive interfaces."
+year: 2026
+role:
+  - Team Lead 
+  - Interface design
+industry: "Automotive"
+disciplines:
+  - User Interface Design
+  - Design Systems
+featured: true
+order: 99
+cover: ./media/cover.webp
+coverAlt: "Describe the meaningful information shown in the project cover."
+placeholder: true
+---
+
+import RichText from "../../../components/case-study/RichText.astro";
+import FullWidthImage from "../../../components/case-study/FullWidthImage.astro";
+import VideoBlock from "../../../components/case-study/VideoBlock.astro";
+import coverImage from "./media/cover.webp";
+import movie from "./media/test-movie.mp4";
+
+<RichText>
+
+## Start with context
+
+Replace this sample text with your project story. Keep confidential details out of the public
+portfolio, and distinguish shipped work from concepts or explorations.
+
+</RichText>
+
+<FullWidthImage
+  src={coverImage}
+  alt="Describe the interface or artifact visible in this image."
+  caption="Optional caption describing the image."
+/>
+
+<VideoBlock
+  src={movie}
+  alt="A short video featuring an elephant approaching the camera."
+  caption="A short video from the project."
+/>

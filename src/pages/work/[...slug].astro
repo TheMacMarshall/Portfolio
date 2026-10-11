@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import { validateProjectSlugs } from "../../content/project-slugs.mjs";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { sitePath } from "../../utils/site-path";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  validateProjectSlugs(projects);
+
+  const orderedProjects = [...projects].sort(
+    (first, second) =>
+      (first.data.order ?? Number.MAX_SAFE_INTEGER) -
+        (second.data.order ?? Number.MAX_SAFE_INTEGER) ||
+      first.id.localeCompare(second.id),
+  );
+
+  return orderedProjects.map((project, index) => ({
+    params: { slug: project.id },
+    props: {
+      project,
+      previousProject: orderedProjects[index - 1],
+      nextProject: orderedProjects[index + 1],
+    },
+  }));
+}
+
+const { project, previousProject, nextProject } = Astro.props;
+const { Content } = await render(project);
+---
+
+<SiteLayout title={project.data.title} description={project.data.description}>
+  <article class="case-study" aria-labelledby="project-title">
+    <header class="case-study__header">
+      <p class="eyebrow">Case study / {project.data.year}</p>
+      <h1 class="display" id="project-title">{project.data.title}</h1>
+      <p class="lede">{project.data.description}</p>
+      {project.data.placeholder && (
+        <p class="project-placeholder__notice">Fictional sample case study — not client work.</p>
+      )}
+      <dl class="case-study__metadata">
+        {project.data.client && (
+          <div><dt>Client</dt><dd>{project.data.client}</dd></div>
+        )}
+        {project.data.industry && (
+          <div><dt>Industry</dt><dd>{project.data.industry}</dd></div>
+        )}
+        {project.data.role.length > 0 && (
+          <div><dt>Role</dt><dd>{project.data.role.join(", ")}</dd></div>
+        )}
+        {project.data.disciplines.length > 0 && (
+          <div><dt>Disciplines</dt><dd>{project.data.disciplines.join(", ")}</dd></div>
+        )}
+      </dl>
+    </header>
+
+    <div class="case-study__content">
+      <Content />
+    </div>
+
+    <nav class="project-navigation" aria-label="Case study navigation">
+      {previousProject ? (
+        <a href={sitePath(`work/${previousProject.id}/`)}>
+          <span class="eyebrow">Previous project</span>
+          <span>{previousProject.data.title}</span>
+        </a>
+      ) : <span />}
+      <a class="project-navigation__back" href={sitePath("#work")}>All projects</a>
+      {nextProject ? (
+        <a class="project-navigation__next" href={sitePath(`work/${nextProject.id}/`)}>
+          <span class="eyebrow">Next project</span>
+          <span>{nextProject.data.title}</span>
+        </a>
+      ) : <span />}
+    </nav>
+  </article>
+</SiteLayout>

@@ -1,0 +1,37 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { sitePath } from "../utils/site-path";
+---
+
+<SiteLayout
+  title="About"
+  description="About a product designer and design leader with around 12 years of UI/UX experience in automotive."
+>
+  <article class="profile-page" aria-labelledby="about-title">
+    <header class="profile-page__header">
+      <p class="eyebrow">About <span aria-hidden="true">/</span> Design practice</p>
+      <h1 class="display" id="about-title">From interface detail to the bigger picture.</h1>
+      <p class="lede">
+        My background spans around 12 years in UI/UX design, with experience in automotive and team
+        leadership.
+      </p>
+    </header>
+
+    <div class="profile-page__details">
+      <p class="eyebrow">Focus</p>
+      <div>
+        <h2>Products, interfaces, and the teams behind them.</h2>
+        <p>
+          This portfolio is a home for selected work across product design, automotive interfaces,
+          design systems, and leadership. Project details will be added as work that can be shared
+          is prepared for publication.
+        </p>
+      </div>
+    </div>
+
+    <nav class="profile-page__links" aria-label="Explore the portfolio">
+      <a class="text-link" href={sitePath("#work")}>Explore selected work <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href={sitePath("contact/")}>Contact <span aria-hidden="true">↗</span></a>
+    </nav>
+  </article>
+</SiteLayout>

@@ -1,0 +1,92 @@
+---
+title: "Interface study 01"
+description: "A fictional exploration of how a focused in-vehicle interface might make route information easier to scan."
+year: 2026
+industry: "Automotive concept"
+role:
+  - Product design
+  - UX
+disciplines:
+  - Automotive
+  - Interface design
+tags:
+  - Automotive
+  - Concept
+featured: true
+order: 1
+cover: ./media/interface-study.svg
+coverAlt: "Fictional vehicle display concept with abstract interface panels."
+placeholder: true
+---
+
+import RichText from "../../../components/case-study/RichText.astro";
+import FullWidthImage from "../../../components/case-study/FullWidthImage.astro";
+import SplitImage from "../../../components/case-study/SplitImage.astro";
+import BeforeAfter from "../../../components/case-study/BeforeAfter.astro";
+import PullQuote from "../../../components/case-study/PullQuote.astro";
+import KeyMetrics from "../../../components/case-study/KeyMetrics.astro";
+import Metric from "../../../components/case-study/Metric.astro";
+import FullBleedMedia from "../../../components/case-study/FullBleedMedia.astro";
+import interfaceImage from "./media/interface-study.svg";
+import mobilityImage from "./media/interface-study-detail.svg";
+
+<RichText>
+
+## A fictional starting point
+
+This sample case study demonstrates one possible sequence of story, image, and comparison blocks.
+It is illustrative placeholder content—not a real client brief, research result, or shipped product.
+
+### The design question
+
+How might a driver find the next useful piece of information without competing visual noise?
+The following images are locally stored concept artwork created only to exercise this content system.
+
+</RichText>
+
+<FullWidthImage
+  src={interfaceImage}
+  alt="Fictional vehicle display with two abstract information screens."
+  caption="Concept artwork / placeholder visual"
+/>
+
+<SplitImage
+  src={mobilityImage}
+  alt="Fictional route-planning interface displayed on a mobile device."
+  imageSide="right"
+  caption="A related interface study / placeholder visual"
+>
+
+### One system, different moments
+
+This split block places copy beside media. Its `imageSide` property can be switched to `"left"`
+without changing the project layout.
+
+</SplitImage>
+
+<BeforeAfter
+  before={mobilityImage}
+  after={interfaceImage}
+  beforeAlt="Fictional early interface concept shown in a tall composition."
+  afterAlt="Fictional alternate interface concept shown in a wide composition."
+  beforeLabel="Early concept / illustrative"
+  afterLabel="Alternate concept / illustrative"
+/>
+
+<PullQuote
+  quote="A fictional placeholder line to demonstrate the pull-quote treatment."
+  attribution="Sample copy only — not a research participant"
+>
+
+<KeyMetrics>
+  <Metric value="01" label="example direction (illustrative)" />
+  <Metric value="02" label="example direction (illustrative)" />
+</KeyMetrics>
+
+</PullQuote>
+
+<FullBleedMedia
+  src={interfaceImage}
+  alt="Wide fictional interface concept artwork shown as a full-bleed closing image."
+  caption="Full-bleed media block / placeholder visual"
+/>

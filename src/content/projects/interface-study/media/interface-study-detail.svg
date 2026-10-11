@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" fill="none">
+  <rect width="1200" height="1500" fill="#B7C0B0"/>
+  <text x="82" y="108" fill="#374137" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">PLACEHOLDER / INTERFACE STUDY</text>
+  <path d="M82 135H480" stroke="#687365"/>
+  <rect x="145" y="208" width="910" height="1084" fill="#252B28"/>
+  <rect x="185" y="248" width="830" height="1004" fill="#E6E3DA"/>
+  <text x="246" y="336" fill="#52624E" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">SAMPLE DISPLAY CONCEPT</text>
+  <text x="246" y="425" fill="#272D28" font-family="Georgia, serif" font-size="52">More signal.</text>
+  <text x="246" y="483" fill="#272D28" font-family="Georgia, serif" font-size="52">Less noise.</text>
+  <rect x="246" y="536" width="708" height="335" fill="#D4D9CE"/>
+  <path d="M246 768C337 704 422 699 503 731C580 761 664 718 739 661C802 613 875 628 954 673" stroke="#65745F" stroke-width="5"/>
+  <path d="M246 811H954M322 536V871M883 536V871" stroke="#AFB7AA" stroke-width="2"/>
+  <circle cx="600" cy="709" r="14" fill="#52624E"/>
+  <rect x="246" y="926" width="708" height="58" fill="#29302B"/>
+  <text x="278" y="963" fill="#F0EEE7" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">SAMPLE CONTENT / NOT A REAL PRODUCT</text>
+</svg>
