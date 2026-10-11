@@ -1,9 +1,16 @@
 import assert from "node:assert/strict";
-import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import { validateBuildOutput } from "../src/content/validate-build-output.mjs";
+
+function addRobotsDirective(html) {
+  return html.replace(
+    "<head>",
+    '<head><meta name="robots" content="noindex, nofollow">',
+  );
+}
 
 async function createFixture(t, { caseStudy = true, video = false } = {}) {
   const directory = await mkdtemp(join(tmpdir(), "portfolio-build-check-"));
@@ -36,6 +43,13 @@ async function createFixture(t, { caseStudy = true, video = false } = {}) {
     ":focus-visible { outline: 2px solid; } @media (max-width: 38rem) { body { color: black; } } @media (min-width: 38.01rem) and (max-width: 58rem) { body { color: black; } } @media (prefers-reduced-motion: reduce) { * { transition: none; } }",
   );
 
+  for (const pagePath of [
+    join(directory, "index.html"),
+    ...(caseStudy ? [join(directory, "case", "index.html")] : []),
+  ]) {
+    await writeFile(pagePath, addRobotsDirective(await readFile(pagePath, "utf8")));
+  }
+
   return directory;
 }
 
@@ -45,6 +59,16 @@ test("accepts generated pages with valid local routes, media, metadata, and acce
 
   assert.deepEqual(result.errors, []);
   assert.equal(result.pages, 2);
+});
+
+test("requires every generated page to discourage indexing and link following", async (t) => {
+  const directory = await createFixture(t, { caseStudy: false });
+  const pagePath = join(directory, "index.html");
+  const html = await readFile(pagePath, "utf8");
+  await writeFile(pagePath, html.replace('<meta name="robots" content="noindex, nofollow">', ""));
+
+  const result = await validateBuildOutput(directory);
+  assert.ok(result.errors.some((error) => error.includes('robots directive of "noindex, nofollow"')));
 });
 
 test("reports broken local links and missing anchors by generated page", async (t) => {
@@ -103,11 +127,11 @@ test("resolves internal routes and bundled media under a GitHub Pages base path"
   await writeFile(join(directory, "_astro", "app.js"), "console.log('site');");
   await writeFile(
     join(directory, "index.html"),
-    `<!doctype html><html lang="en"><head><title>Home</title><meta name="description" content="Home description"><meta property="og:title" content="Home"><meta property="og:description" content="Home description"><script src="/portfolio/_astro/app.js"></script></head><body><h1>Home</h1><h2 id="work">Work</h2><a href="/portfolio/case/#story">Case study</a></body></html>`,
+    addRobotsDirective(`<!doctype html><html lang="en"><head><title>Home</title><meta name="description" content="Home description"><meta property="og:title" content="Home"><meta property="og:description" content="Home description"><script src="/portfolio/_astro/app.js"></script></head><body><h1>Home</h1><h2 id="work">Work</h2><a href="/portfolio/case/#story">Case study</a></body></html>`),
   );
   await writeFile(
     join(directory, "case", "index.html"),
-    `<!doctype html><html lang="en"><head><title>Case</title><meta name="description" content="Case description"><meta property="og:title" content="Case"><meta property="og:description" content="Case description"></head><body><h1>Case</h1><h2 id="story">Story</h2><img src="/portfolio/_astro/poster.webp" alt="A descriptive image" width="800" height="500"><video controls controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback poster="/portfolio/_astro/poster.webp"><source src="/portfolio/_astro/clip.mp4"></video><a href="/portfolio/">Home</a></body></html>`,
+    addRobotsDirective(`<!doctype html><html lang="en"><head><title>Case</title><meta name="description" content="Case description"><meta property="og:title" content="Case"><meta property="og:description" content="Case description"></head><body><h1>Case</h1><h2 id="story">Story</h2><img src="/portfolio/_astro/poster.webp" alt="A descriptive image" width="800" height="500"><video controls controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback poster="/portfolio/_astro/poster.webp"><source src="/portfolio/_astro/clip.mp4"></video><a href="/portfolio/">Home</a></body></html>`),
   );
 
   const result = await validateBuildOutput(directory, { basePath: "/portfolio/" });

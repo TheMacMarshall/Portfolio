@@ -99,12 +99,21 @@ export async function validateBuildOutput(distDir, { basePath = getBasePath() } 
     const descriptions = htmlAttributes(html, "meta").filter(
       (attributes) => attributes.name?.toLowerCase() === "description",
     );
+    const robotsDirectives = htmlAttributes(html, "meta").filter(
+      (attributes) => attributes.name?.toLowerCase() === "robots",
+    );
 
     if (titles.length !== 1 || !titles[0][1].trim()) {
       errors.push(`${label}: expected exactly one non-empty SEO <title>.`);
     }
     if (descriptions.length !== 1 || !descriptions[0].content?.trim()) {
       errors.push(`${label}: expected exactly one non-empty meta description.`);
+    }
+    if (
+      robotsDirectives.length !== 1 ||
+      robotsDirectives[0].content?.trim().toLowerCase() !== "noindex, nofollow"
+    ) {
+      errors.push(`${label}: expected a robots directive of "noindex, nofollow".`);
     }
     if (!html.includes('property="og:title"') || !html.includes('property="og:description"')) {
       errors.push(`${label}: Open Graph title or description metadata is missing.`);
