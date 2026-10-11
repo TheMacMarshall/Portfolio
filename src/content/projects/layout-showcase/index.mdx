@@ -24,7 +24,6 @@ import SplitImage from "../../../components/case-study/SplitImage.astro";
 import ImageGallery from "../../../components/case-study/ImageGallery.astro";
 import Slideshow from "../../../components/case-study/Slideshow.astro";
 import SlideshowSlide from "../../../components/case-study/SlideshowSlide.astro";
-import VideoBlock from "../../../components/case-study/VideoBlock.astro";
 import BeforeAfter from "../../../components/case-study/BeforeAfter.astro";
 import PullQuote from "../../../components/case-study/PullQuote.astro";
 import KeyMetrics from "../../../components/case-study/KeyMetrics.astro";
@@ -34,7 +33,6 @@ import wideInterface from "./media/interface-wide.svg";
 import detailedInterface from "./media/interface-detail.svg";
 import slideshowOverview from "./media/slideshow-overview.svg";
 import slideshowDetail from "./media/slideshow-detail.svg";
-import showcaseMovie from "./media/showcase.mp4";
 
 <RichText>
 
@@ -183,21 +181,6 @@ real, relevant measures to share.
 </KeyMetrics>
 
 </PullQuote>
-
-<RichText>
-
-## Including a video
-
-Video blocks use native playback controls, a project-local MP4, and an explicit or automatically
-generated poster. Optional captions can be added when a video contains meaningful speech or audio.
-
-</RichText>
-
-<VideoBlock
-  src={showcaseMovie}
-  alt="A short illustrative clip showing an elephant approaching the camera."
-  caption="Video block — the supplied sample clip is included to demonstrate media placement."
-/>
 
 <FullBleedMedia
   src={wideInterface}
